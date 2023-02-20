@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.mercury {
+    width: 100px;
+    height: 100px;
+    background-image: url("./assets/planet-mercury.svg");
+    background-size: contain;
+}
