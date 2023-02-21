@@ -1,21 +1,19 @@
 import planetsData from "../data/data.json";
-import { useState } from "react";
 
-export default function Header() {
+export default function Header({ setSelectedPlanet, setImagePlanet }) {
 	// console.log(planetsData);
 	let planetList = [];
 	planetsData.forEach((pl) => {
 		planetList.push(pl.name);
 	});
 
-	const [chosenPlanet, setChosenPlanet] = useState(planetList[0]);
 	function planetPick(e) {
-		setChosenPlanet(e.target.innerText);
+		setSelectedPlanet(e.target.innerText);
 	}
 	const planetListRender = planetList.map((planet, index) => {
 		return (
 			<li key={index}>
-				<button className={planet.toLowerCase()} onClick={planetPick}>
+				<button onClick={planetPick}>
 					{planet}
 					<svg xmlns="http://www.w3.org/2000/svg" width="6" height="8">
 						<path fill="none" stroke="#FFF" opacity=".4" d="M1 0l4 4-4 4" />
