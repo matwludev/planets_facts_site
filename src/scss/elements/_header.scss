@@ -1,1 +1,148 @@
- 
+ header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 7rem;
+    position: fixed;
+    top: 0;
+    background-color: rgb(7,7,36);
+    z-index: 1;
+
+    &::after {
+        content:"";
+        width: 100%;
+        border-bottom: .1rem solid rgba(255,255,255,0.25);
+        display: block;
+        position: absolute;
+        bottom: 0;
+    }
+    h1 {
+        font-family: 'Antonio', sans-serif;
+        font-size: 2.8rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: rgba(255,255,255);
+        margin-left: 2.5rem;
+    }
+    
+    button {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: transparent;
+        border: none;
+        margin-right: 2.5rem;
+        svg {
+            g {
+                fill: rgba(255,255,255,0.25);
+            }
+        }
+    }
+    .menu {
+        transform: translateX(-100%);
+        display: block;
+        position: absolute;
+        background-color: rgb(7,7,36);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        top: 7rem;
+        width: 100vw;
+        height: calc(100vh - 7rem);
+        transition: transform 0.35s;
+        z-index: 1;
+
+        li {
+            width: 100%;
+            position: relative;
+            &::after {
+                content:"";
+                width: calc(100% - 5rem);
+                border-bottom: .1rem solid rgba(255,255,255,0.25);
+                display: block;
+                position: absolute;
+                bottom: -2rem;
+                left: 2.5rem;
+
+            }
+
+            &:last-of-type::after {
+                display: none;
+            }
+            button {
+                position: relative;
+                width: 100%;
+                color: rgba(255,255,255);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 2.5rem 0 7.5rem;
+                font-family: 'League Spartan', sans-serif;
+                font-size: 1.5rem;
+                letter-spacing: .14rem;
+                text-transform: uppercase;
+                font-weight: 700;
+                
+                &::after {
+                    content: url('./assets/icon-chevron.svg');
+                }
+                
+                &::before {
+                    content: '';
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+                    margin-right: 2.5rem;
+                    position: absolute;
+                    left: 2.5rem;
+                }   
+            }
+            .mercury {
+                &::before{
+                    background-color:rgba(222, 244, 252, 1);
+                }
+            }
+            .venus {
+                &::before{
+                    background-color:rgba(247, 204, 127, 1);
+                }
+            }
+            .earth {
+                &::before{
+                    background-color:rgba(84, 91, 254, 1);
+                }
+            }
+            .mars {
+                &::before{
+                    background-color:rgba(255, 106, 69, 1);
+                }
+            }
+            .jupiter {
+                &::before{
+                    background-color:rgba(236, 173, 122, 1);
+                }
+            }
+            .saturn {
+                &::before{
+                    background-color:rgba(252, 203, 107, 1);
+                }
+            }
+            .uranus {
+                &::before{
+                    background-color:rgba(101, 240, 213, 1);
+                }
+            }
+            .neptune {
+                &::before{
+                    background-color:rgba(73, 126, 250, 1);
+                }
+            }
+        }
+     }
+   
+     .menu.open {
+        transform: translateX(0);
+     }
+ }

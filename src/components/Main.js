@@ -1,31 +1,36 @@
 import planetsData from "../data/data.json";
 import { useState } from "react";
 
-export default function Main({ selectedPlanet, imagePlanet }) {
+export default function Main({ selectedPlanet }) {
 	let planetD = planetsData[0];
 	const [contentType, setContentType] = useState("overview");
-	let test = planetD.overview;
+
+	console.log(contentType.toLowerCase());
+	let contentT = planetD.overview;
 
 	switch (selectedPlanet) {
-		case "Venus":
+		case "MERCURY":
+			planetD = planetsData[0];
+			break;
+		case "VENUS":
 			planetD = planetsData[1];
 			break;
-		case "Earth":
+		case "EARTH":
 			planetD = planetsData[2];
 			break;
-		case "Mars":
+		case "MARS":
 			planetD = planetsData[3];
 			break;
-		case "Jupiter":
+		case "JUPITER":
 			planetD = planetsData[4];
 			break;
-		case "Saturn":
+		case "SATURN":
 			planetD = planetsData[5];
 			break;
-		case "Uranus":
+		case "URANUS":
 			planetD = planetsData[6];
 			break;
-		case "Neptune":
+		case "NEPTUNE":
 			planetD = planetsData[7];
 			break;
 		default:
@@ -35,30 +40,56 @@ export default function Main({ selectedPlanet, imagePlanet }) {
 		setContentType(e.target.innerText);
 	}
 
-	switch (contentType) {
+	switch (contentType.toLowerCase()) {
 		case "overview":
-			test = planetD.overview;
+			contentT = planetD.overview;
 			break;
 		case "structure":
-			test = planetD.structure;
+			contentT = planetD.structure;
 			break;
 		case "internal structure":
-			test = planetD.structure;
+			contentT = planetD.structure;
 			break;
 		case "surface":
-			test = planetD.geology;
+			contentT = planetD.geology;
 			break;
 		case "surface geology":
-			test = planetD.geology;
+			contentT = planetD.geology;
 			break;
 		default:
 			break;
+	}
+	function ImageRender() {
+		if (contentType.toLowerCase() === "overview") {
+			return (
+				<div className={`image ${selectedPlanet.toLowerCase()} overview`}></div>
+			);
+		} else if (
+			contentType.toLowerCase() === "structure" ||
+			contentType.toLowerCase() === "internal structure"
+		) {
+			return (
+				<div
+					className={`image ${selectedPlanet.toLowerCase()} structure`}></div>
+			);
+		} else if (
+			contentType.toLowerCase() === "surface" ||
+			contentType.toLowerCase() === "surface geology"
+		) {
+			return (
+				<div className={`image ${selectedPlanet.toLowerCase()} overview`}>
+					<img
+						src={require(`../assets/geology-${selectedPlanet.toLowerCase()}.png`)}
+						alt="planet geology"></img>
+				</div>
+			);
+		}
 	}
 
 	return (
 		<>
 			<main>
-				<nav>
+				<nav className="nav-mobile">
 					<ul>
 						<li>
 							<button onClick={contentPick}>overview</button>
@@ -71,41 +102,33 @@ export default function Main({ selectedPlanet, imagePlanet }) {
 						</li>
 					</ul>
 				</nav>
-				<div className={selectedPlanet.toLowerCase()}>
-					{(contentType === "surface" || contentType === "surface geology") && (
-						<img
-							src={require(`../assets/geology-${selectedPlanet.toLowerCase()}.png`)}
-							alt="planet geology"></img>
-					)}
-				</div>
-				<div>
-					<div>
+				<ImageRender />
+				<div className="planetInformations">
+					<div className="infroWrapper">
 						<h2>{selectedPlanet}</h2>
-						<p>{test.content}</p>
+						<p>{contentT.content}</p>
 						<span>
 							Source:
-							<a href={test.source} target="_blank" rel="noreferrer">
+							<a href={contentT.source} target="_blank" rel="noreferrer">
 								Wikipedia
 							</a>
 						</span>
 					</div>
-					<div>
-						<nav>
-							<ul>
-								<li>
-									<button onClick={contentPick}>overview</button>
-								</li>
-								<li>
-									<button onClick={contentPick}>internal structure</button>
-								</li>
-								<li>
-									<button onClick={contentPick}>surface geology</button>
-								</li>
-							</ul>
-						</nav>
-					</div>
+					<nav className="nav-tabletDesktop">
+						<ul>
+							<li>
+								<button onClick={contentPick}>overview</button>
+							</li>
+							<li>
+								<button onClick={contentPick}>internal structure</button>
+							</li>
+							<li>
+								<button onClick={contentPick}>surface geology</button>
+							</li>
+						</ul>
+					</nav>
 				</div>
-				<div>
+				<div className="planetNumbers">
 					<div>
 						<h3>rotation time</h3>
 						<p>{planetD.rotation}</p>
