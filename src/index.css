@@ -86,7 +86,7 @@ header .menu li::after {
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.25);
   display: block;
   position: absolute;
-  bottom: -2rem;
+  bottom: -1rem;
   left: 2.5rem;
 }
 header .menu li:last-of-type::after {
@@ -103,6 +103,7 @@ header .menu li button {
   padding: 0 2.5rem 0 7.5rem;
   font-family: "League Spartan", sans-serif;
   font-size: 1.5rem;
+  height: 7.5rem;
   letter-spacing: 0.14rem;
   text-transform: uppercase;
   font-weight: 700;
@@ -173,18 +174,51 @@ main .nav-mobile ul::after {
 }
 main .nav-mobile ul li {
   width: 33%;
+  text-align: center;
 }
 main .nav-mobile ul li button {
-  width: 100%;
+  width: 75%;
   background-color: transparent;
   border: none;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.5);
   font-family: "League Spartan", sans-serif;
   font-size: 0.9rem;
   letter-spacing: 0.2rem;
   font-weight: 700;
   line-height: 5rem;
   text-transform: uppercase;
+}
+main .nav-mobile ul li.active button {
+  color: rgb(255, 255, 255);
+}
+main .nav-mobile ul li.active button::after {
+  content: "";
+  display: block;
+  border-bottom: 0.4rem solid rgb(65, 158, 187);
+}
+main .nav-mobile ul li.mercury.active button::after {
+  border-color: rgb(65, 158, 187);
+}
+main .nav-mobile ul li.venus.active button::after {
+  border-color: rgb(237, 162, 73);
+}
+main .nav-mobile ul li.earth.active button::after {
+  border-color: rgb(109, 46, 213);
+}
+main .nav-mobile ul li.mars.active button::after {
+  border-color: rgb(209, 76, 50);
+}
+main .nav-mobile ul li.jupiter.active button::after {
+  border-color: rgb(216, 58, 52);
+}
+main .nav-mobile ul li.saturn.active button::after {
+  border-color: rgb(205, 81, 32);
+}
+main .nav-mobile ul li.uranus.active button::after {
+  border-color: rgb(30, 193, 162);
+}
+main .nav-mobile ul li.neptune.active button::after {
+  border-color: rgb(45, 104, 240);
 }
 main [class^=image] {
   width: 30rem;

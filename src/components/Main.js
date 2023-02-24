@@ -5,7 +5,6 @@ export default function Main({ selectedPlanet }) {
 	let planetD = planetsData[0];
 	const [contentType, setContentType] = useState("overview");
 
-	console.log(contentType.toLowerCase());
 	let contentT = planetD.overview;
 
 	switch (selectedPlanet) {
@@ -36,25 +35,45 @@ export default function Main({ selectedPlanet }) {
 		default:
 			break;
 	}
+
+	const [activeType, setActiveType] = useState(["active", "", ""]);
 	function contentPick(e) {
 		setContentType(e.target.innerText);
+		if (e.target.innerText.toLowerCase() === "overview") {
+			setActiveType(["active", "", ""]);
+		} else if (
+			e.target.innerText.toLowerCase() === "structure" ||
+			e.target.innerText.toLowerCase() === "internal structure"
+		) {
+			setActiveType(["", "active", ""]);
+		} else if (
+			e.target.innerText.toLowerCase() === "surface" ||
+			e.target.innerText.toLowerCase() === "internal surface"
+		) {
+			setActiveType(["", "", "active"]);
+		}
 	}
 
 	switch (contentType.toLowerCase()) {
 		case "overview":
 			contentT = planetD.overview;
+
 			break;
 		case "structure":
 			contentT = planetD.structure;
+
 			break;
 		case "internal structure":
 			contentT = planetD.structure;
+
 			break;
 		case "surface":
 			contentT = planetD.geology;
+
 			break;
 		case "surface geology":
 			contentT = planetD.geology;
+
 			break;
 		default:
 			break;
@@ -91,13 +110,13 @@ export default function Main({ selectedPlanet }) {
 			<main>
 				<nav className="nav-mobile">
 					<ul>
-						<li>
+						<li className={`${selectedPlanet.toLowerCase()} ${activeType[0]}`}>
 							<button onClick={contentPick}>overview</button>
 						</li>
-						<li>
+						<li className={`${selectedPlanet.toLowerCase()} ${activeType[1]}`}>
 							<button onClick={contentPick}>structure</button>
 						</li>
-						<li>
+						<li className={`${selectedPlanet.toLowerCase()} ${activeType[2]}`}>
 							<button onClick={contentPick}>surface</button>
 						</li>
 					</ul>
@@ -116,13 +135,13 @@ export default function Main({ selectedPlanet }) {
 					</div>
 					<nav className="nav-tabletDesktop">
 						<ul>
-							<li>
+							<li className={activeType[0]}>
 								<button onClick={contentPick}>overview</button>
 							</li>
-							<li>
+							<li className={activeType[1]}>
 								<button onClick={contentPick}>internal structure</button>
 							</li>
-							<li>
+							<li className={activeType[2]}>
 								<button onClick={contentPick}>surface geology</button>
 							</li>
 						</ul>

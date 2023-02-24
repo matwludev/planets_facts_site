@@ -22,19 +22,53 @@ main {
             }
             li {
                 width: 33%;
-
+                text-align: center;
                 button {
-                    width: 100%;
+                    width: 75%;
                     background-color: transparent;
                     border: none;
-                    color: rgba(255,255,255);
+                    color: rgba(255,255,255,0.5); 
                     font-family: 'League Spartan', sans-serif;
                     font-size: .9rem;
                     letter-spacing: .2rem;
                     font-weight: 700;
                     line-height: 5rem;
                     text-transform: uppercase;
+                }
 
+                &.active button {
+                    color: rgba(255,255,255);
+                }
+
+                &.active button::after {
+                    content: "";
+                    display: block;
+                    border-bottom: .4rem solid rgb(65,158,187);
+                }
+
+                &.mercury.active button::after {
+                    border-color:rgb(65,158,187);
+                }
+                &.venus.active button::after {
+                    border-color: rgb(237,162,73);
+                }
+                &.earth.active button::after {
+                    border-color: rgb(109,46,213);
+                }
+                &.mars.active button::after {
+                    border-color: rgb(209,76,50);
+                }
+                &.jupiter.active button::after {
+                    border-color: rgb(216,58,52);
+                }
+                &.saturn.active button::after {
+                    border-color: rgb(205,81,32);
+                }
+                &.uranus.active button::after {
+                    border-color: rgb(30,193,162);
+                }
+                &.neptune.active button::after {
+                    border-color: rgb(45,104,240);
                 }
             }
         }
