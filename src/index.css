@@ -44,6 +44,15 @@ header::after {
   position: absolute;
   bottom: 0;
 }
+@media screen and (min-width: 768px) {
+  header {
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+}
 header h1 {
   font-family: "Antonio", sans-serif;
   font-size: 2.8rem;
@@ -52,14 +61,24 @@ header h1 {
   color: rgb(255, 255, 255);
   margin-left: 2.5rem;
 }
-header button {
+@media screen and (min-width: 768px) {
+  header h1 {
+    margin: 3rem 0;
+  }
+}
+header .hamburger {
   width: 2.5rem;
   height: 2.5rem;
   background: transparent;
   border: none;
   margin-right: 2.5rem;
 }
-header button svg g {
+@media screen and (min-width: 768px) {
+  header .hamburger {
+    display: none;
+  }
+}
+header .hamburger svg g {
   fill: rgba(255, 255, 255, 0.25);
 }
 header .menu {
@@ -76,9 +95,25 @@ header .menu {
   transition: transform 0.35s;
   z-index: 1;
 }
+@media screen and (min-width: 768px) {
+  header .menu {
+    transform: none;
+    position: relative;
+    flex-direction: row;
+    height: auto;
+    top: 0;
+    background-color: transparent;
+    margin: 0 5rem;
+  }
+}
 header .menu li {
   width: 100%;
   position: relative;
+}
+@media screen and (min-width: 768px) {
+  header .menu li {
+    width: auto;
+  }
 }
 header .menu li::after {
   content: "";
@@ -89,12 +124,19 @@ header .menu li::after {
   bottom: -1rem;
   left: 2.5rem;
 }
+@media screen and (min-width: 768px) {
+  header .menu li::after {
+    display: none;
+  }
+}
 header .menu li:last-of-type::after {
   display: none;
 }
 header .menu li button {
   position: relative;
   width: 100%;
+  background-color: transparent;
+  border: none;
   color: rgb(255, 255, 255);
   display: flex;
   flex-direction: row;
@@ -119,6 +161,21 @@ header .menu li button::before {
   margin-right: 2.5rem;
   position: absolute;
   left: 2.5rem;
+}
+@media screen and (min-width: 768px) {
+  header .menu li button {
+    padding: 0;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  header .menu li button::before {
+    display: none;
+  }
+  header .menu li button::after {
+    display: none;
+  }
+  header .menu li button.active {
+    color: rgb(255, 255, 255);
+  }
 }
 header .menu li .mercury::before {
   background-color: rgb(222, 244, 252);
@@ -156,6 +213,11 @@ main {
 main .nav-mobile {
   width: 100%;
   margin-top: 7rem;
+}
+@media screen and (min-width: 768px) {
+  main .nav-mobile {
+    display: none;
+  }
 }
 main .nav-mobile ul {
   display: flex;
@@ -227,6 +289,12 @@ main [class^=image] {
   background-position: center;
   position: relative;
 }
+@media screen and (min-width: 768px) {
+  main [class^=image] {
+    width: 50rem;
+    height: 50rem;
+  }
+}
 main [class^=image] img {
   position: absolute;
   width: 80px;
@@ -239,71 +307,164 @@ main .image.mercury.overview {
   background-image: url("./assets/planet-mercury.svg");
   background-size: 10rem 10rem;
 }
+@media screen and (min-width: 768px) {
+  main .image.mercury.overview {
+    background-size: 18rem 18rem;
+  }
+}
 main .image.venus.overview {
   background-image: url("./assets/planet-venus.svg");
   background-size: 15rem 15rem;
+}
+@media screen and (min-width: 768px) {
+  main .image.venus.overview {
+    background-size: 25rem 25rem;
+  }
 }
 main .image.earth.overview {
   background-image: url("./assets/planet-earth.svg");
   background-size: 17rem 17rem;
 }
+@media screen and (min-width: 768px) {
+  main .image.earth.overview {
+    background-size: 28rem 28rem;
+  }
+}
 main .image.mars.overview {
   background-image: url("./assets/planet-mars.svg");
   background-size: 13rem 13rem;
+}
+@media screen and (min-width: 768px) {
+  main .image.mars.overview {
+    background-size: 21rem 21rem;
+  }
 }
 main .image.jupiter.overview {
   background-image: url("./assets/planet-jupiter.svg");
   background-size: 22rem 22rem;
 }
+@media screen and (min-width: 768px) {
+  main .image.jupiter.overview {
+    background-size: 37rem 37rem;
+  }
+}
 main .image.saturn.overview {
   background-image: url("./assets/planet-saturn.svg");
   background-size: 25rem 25rem;
+}
+@media screen and (min-width: 768px) {
+  main .image.saturn.overview {
+    background-size: 42rem 42rem;
+  }
 }
 main .image.uranus.overview {
   background-image: url("./assets/planet-uranus.svg");
   background-size: 18rem 18rem;
 }
+@media screen and (min-width: 768px) {
+  main .image.uranus.overview {
+    background-size: 29rem 29rem;
+  }
+}
 main .image.neptune.overview {
   background-image: url("./assets/planet-neptune.svg");
   background-size: 17rem 17rem;
+}
+@media screen and (min-width: 768px) {
+  main .image.neptune.overview {
+    background-size: 29rem 29rem;
+  }
 }
 main .image.mercury.structure {
   background-image: url("./assets/planet-mercury-internal.svg");
   background-size: 10rem 10rem;
 }
+@media screen and (min-width: 768px) {
+  main .image.mercury.structure {
+    background-size: 18rem 18rem;
+  }
+}
 main .image.venus.structure {
   background-image: url("./assets/planet-venus-internal.svg");
   background-size: 15rem 15rem;
+}
+@media screen and (min-width: 768px) {
+  main .image.venus.structure {
+    background-size: 25rem 25rem;
+  }
 }
 main .image.earth.structure {
   background-image: url("./assets/planet-earth-internal.svg");
   background-size: 17rem 17rem;
 }
+@media screen and (min-width: 768px) {
+  main .image.earth.structure {
+    background-size: 28rem 28rem;
+  }
+}
 main .image.mars.structure {
   background-image: url("./assets/planet-mars-internal.svg");
   background-size: 13rem 13rem;
+}
+@media screen and (min-width: 768px) {
+  main .image.mars.structure {
+    background-size: 21rem 21rem;
+  }
 }
 main .image.jupiter.structure {
   background-image: url("./assets/planet-jupiter-internal.svg");
   background-size: 22rem 22rem;
 }
+@media screen and (min-width: 768px) {
+  main .image.jupiter.structure {
+    background-size: 37rem 37rem;
+  }
+}
 main .image.saturn.structure {
   background-image: url("./assets/planet-saturn-internal.svg");
   background-size: 25rem 25rem;
+}
+@media screen and (min-width: 768px) {
+  main .image.saturn.structure {
+    background-size: 42rem 42rem;
+  }
 }
 main .image.uranus.structure {
   background-image: url("./assets/planet-uranus-internal.svg");
   background-size: 18rem 18rem;
 }
+@media screen and (min-width: 768px) {
+  main .image.uranus.structure {
+    background-size: 29rem 29rem;
+  }
+}
 main .image.neptune.structure {
   background-image: url("./assets/planet-neptune-internal.svg");
   background-size: 17rem 17rem;
 }
+@media screen and (min-width: 768px) {
+  main .image.neptune.structure {
+    background-size: 29rem 29rem;
+  }
+}
 main .planetInformations {
   margin: 0 2.5rem;
 }
+@media screen and (min-width: 768px) {
+  main .planetInformations {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 main .planetInformations .infroWrapper {
   text-align: center;
+}
+@media screen and (min-width: 768px) {
+  main .planetInformations .infroWrapper {
+    width: 50%;
+    text-align: start;
+  }
 }
 main .planetInformations .infroWrapper h2 {
   font-size: 4rem;
@@ -317,7 +478,7 @@ main .planetInformations .infroWrapper p {
   font-size: 1.1rem;
   font-family: "League Spartan", sans-serif;
   line-height: 2.2rem;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.75);
   font-weight: 400;
   margin-bottom: 3rem;
 }
@@ -333,6 +494,11 @@ main .planetInformations .infroWrapper span {
   justify-content: center;
   align-items: center;
 }
+@media screen and (min-width: 768px) {
+  main .planetInformations .infroWrapper span {
+    justify-content: flex-start;
+  }
+}
 main .planetInformations .infroWrapper span a {
   margin-left: 1rem;
 }
@@ -343,10 +509,73 @@ main .planetInformations .infroWrapper span a::after {
 main .planetInformations .nav-tabletDesktop {
   display: none;
 }
+@media screen and (min-width: 768px) {
+  main .planetInformations .nav-tabletDesktop {
+    display: flex;
+    width: 40%;
+    align-items: center;
+  }
+  main .planetInformations .nav-tabletDesktop ul {
+    width: 100%;
+  }
+  main .planetInformations .nav-tabletDesktop ul li {
+    width: 100%;
+  }
+  main .planetInformations .nav-tabletDesktop ul li:nth-of-type(2) {
+    margin: 2rem 0;
+  }
+  main .planetInformations .nav-tabletDesktop ul li button {
+    text-align: start;
+    width: 100%;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    font-size: 0.9rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    border: 0.1rem solid rgba(255, 255, 255, 0.5);
+  }
+  main .planetInformations .nav-tabletDesktop ul li button span {
+    color: rgba(255, 255, 255, 0.75);
+    margin-left: 2rem;
+  }
+  main .planetInformations .nav-tabletDesktop ul li.mercury.active button {
+    background-color: rgb(65, 158, 187);
+  }
+  main .planetInformations .nav-tabletDesktop ul li.venus.active button {
+    background-color: rgb(237, 162, 73);
+  }
+  main .planetInformations .nav-tabletDesktop ul li.earth.active button {
+    background-color: rgb(109, 46, 213);
+  }
+  main .planetInformations .nav-tabletDesktop ul li.mars.active button {
+    background-color: rgb(209, 76, 50);
+  }
+  main .planetInformations .nav-tabletDesktop ul li.jupiter.active button {
+    background-color: rgb(216, 58, 52);
+  }
+  main .planetInformations .nav-tabletDesktop ul li.saturn.active button {
+    background-color: rgb(205, 81, 32);
+  }
+  main .planetInformations .nav-tabletDesktop ul li.uranus.active button {
+    background-color: rgb(30, 193, 162);
+  }
+  main .planetInformations .nav-tabletDesktop ul li.neptune.active button {
+    background-color: rgb(45, 104, 240);
+  }
+}
 main .planetNumbers {
   width: 100%;
   margin: 3rem 0;
   padding: 0 2.5rem;
+}
+@media screen and (min-width: 768px) {
+  main .planetNumbers {
+    display: flex;
+    flex-direction: row;
+  }
 }
 main .planetNumbers div {
   width: 100%;
@@ -358,6 +587,19 @@ main .planetNumbers div {
   align-items: center;
   padding: 0 2.5rem;
 }
+@media screen and (min-width: 768px) {
+  main .planetNumbers div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 1rem;
+    height: auto;
+    padding: 2rem 1.5rem;
+  }
+  main .planetNumbers div:last-of-type {
+    margin-right: 0;
+  }
+}
 main .planetNumbers div h3 {
   font-size: 1rem;
   font-family: "League Spartan", sans-serif;
@@ -366,6 +608,11 @@ main .planetNumbers div h3 {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
 }
+@media screen and (min-width: 768px) {
+  main .planetNumbers div h3 {
+    margin-bottom: 1rem;
+  }
+}
 main .planetNumbers div p {
   font-size: 2rem;
   font-family: "Antonio", sans-serif;
@@ -373,6 +620,11 @@ main .planetNumbers div p {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: -0.1rem;
+}
+@media screen and (min-width: 768px) {
+  main .planetNumbers div p {
+    font-size: 2.5rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -39,16 +39,19 @@ export default function Main({ selectedPlanet }) {
 	const [activeType, setActiveType] = useState(["active", "", ""]);
 	function contentPick(e) {
 		setContentType(e.target.innerText);
-		if (e.target.innerText.toLowerCase() === "overview") {
+		if (
+			e.target.innerText.toLowerCase() === "overview" ||
+			e.target.innerText.toLowerCase() === "01 overview"
+		) {
 			setActiveType(["active", "", ""]);
 		} else if (
 			e.target.innerText.toLowerCase() === "structure" ||
-			e.target.innerText.toLowerCase() === "internal structure"
+			e.target.innerText.toLowerCase() === "02 internal structure"
 		) {
 			setActiveType(["", "active", ""]);
 		} else if (
 			e.target.innerText.toLowerCase() === "surface" ||
-			e.target.innerText.toLowerCase() === "internal surface"
+			e.target.innerText.toLowerCase() === "03 surface geology"
 		) {
 			setActiveType(["", "", "active"]);
 		}
@@ -57,13 +60,15 @@ export default function Main({ selectedPlanet }) {
 	switch (contentType.toLowerCase()) {
 		case "overview":
 			contentT = planetD.overview;
-
+			break;
+		case "01 overview":
+			contentT = planetD.overview;
 			break;
 		case "structure":
 			contentT = planetD.structure;
 
 			break;
-		case "internal structure":
+		case "02 internal structure":
 			contentT = planetD.structure;
 
 			break;
@@ -71,7 +76,7 @@ export default function Main({ selectedPlanet }) {
 			contentT = planetD.geology;
 
 			break;
-		case "surface geology":
+		case "03 surface geology":
 			contentT = planetD.geology;
 
 			break;
@@ -79,13 +84,16 @@ export default function Main({ selectedPlanet }) {
 			break;
 	}
 	function ImageRender() {
-		if (contentType.toLowerCase() === "overview") {
+		if (
+			contentType.toLowerCase() === "overview" ||
+			contentType.toLowerCase() === "01 overview"
+		) {
 			return (
 				<div className={`image ${selectedPlanet.toLowerCase()} overview`}></div>
 			);
 		} else if (
 			contentType.toLowerCase() === "structure" ||
-			contentType.toLowerCase() === "internal structure"
+			contentType.toLowerCase() === "02 internal structure"
 		) {
 			return (
 				<div
@@ -93,7 +101,7 @@ export default function Main({ selectedPlanet }) {
 			);
 		} else if (
 			contentType.toLowerCase() === "surface" ||
-			contentType.toLowerCase() === "surface geology"
+			contentType.toLowerCase() === "03 surface geology"
 		) {
 			return (
 				<div className={`image ${selectedPlanet.toLowerCase()} overview`}>
@@ -135,14 +143,23 @@ export default function Main({ selectedPlanet }) {
 					</div>
 					<nav className="nav-tabletDesktop">
 						<ul>
-							<li className={activeType[0]}>
-								<button onClick={contentPick}>overview</button>
+							<li
+								className={`${selectedPlanet.toLowerCase()} ${activeType[0]}`}>
+								<button onClick={contentPick}>
+									<span>01</span> overview
+								</button>
 							</li>
-							<li className={activeType[1]}>
-								<button onClick={contentPick}>internal structure</button>
+							<li
+								className={`${selectedPlanet.toLowerCase()} ${activeType[1]}`}>
+								<button onClick={contentPick}>
+									<span>02</span> internal structure
+								</button>
 							</li>
-							<li className={activeType[2]}>
-								<button onClick={contentPick}>surface geology</button>
+							<li
+								className={`${selectedPlanet.toLowerCase()} ${activeType[2]}`}>
+								<button onClick={contentPick}>
+									<span>03</span> surface geology
+								</button>
 							</li>
 						</ul>
 					</nav>

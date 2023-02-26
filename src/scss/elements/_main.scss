@@ -6,6 +6,10 @@ main {
     .nav-mobile {
         width: 100%;
         margin-top: 7rem;
+
+        @include tablet {
+            display: none;
+        }
         ul {
             display: flex;
             flex-direction: row;
@@ -81,6 +85,11 @@ main {
         background-position: center;
         position: relative;
 
+        @include tablet {
+            width: 50rem;
+            height: 50rem;
+        }
+
         img {
             position: absolute;
             width: 80px;
@@ -94,72 +103,133 @@ main {
     .image.mercury.overview{
         background-image: url("./assets/planet-mercury.svg");
         background-size: 10rem 10rem;
+
+        @include tablet {
+            background-size: 18rem 18rem;
+        }
     } 
     .image.venus.overview{
         background-image: url("./assets/planet-venus.svg");
         background-size: 15rem 15rem;
+        @include tablet {
+            background-size: 25rem 25rem;
+        }
     } 
     .image.earth.overview{
         background-image: url("./assets/planet-earth.svg");
         background-size: 17rem 17rem;
+        @include tablet {
+            background-size: 28rem 28rem;
+        }
     } 
     .image.mars.overview{
         background-image: url("./assets/planet-mars.svg");
         background-size: 13rem 13rem;
+        @include tablet {
+            background-size: 21rem 21rem;
+        }
     } 
     .image.jupiter.overview{
         background-image: url("./assets/planet-jupiter.svg");
         background-size: 22rem 22rem;
+        @include tablet {
+            background-size: 37rem 37rem;
+        }
     } 
     .image.saturn.overview{
         background-image: url("./assets/planet-saturn.svg");
         background-size: 25rem 25rem;
+        @include tablet {
+            background-size: 42rem 42rem;
+        }
     } 
     .image.uranus.overview{
         background-image: url("./assets/planet-uranus.svg");
         background-size: 18rem 18rem;
+        @include tablet {
+            background-size: 29rem 29rem;
+        }
     } 
     .image.neptune.overview{
         background-image: url("./assets/planet-neptune.svg");
         background-size: 17rem 17rem;
+        @include tablet {
+            background-size: 29rem 29rem;
+        }
     } 
     .image.mercury.structure{
         background-image: url("./assets/planet-mercury-internal.svg");
         background-size: 10rem 10rem;
+        @include tablet {
+            background-size: 18rem 18rem;
+        }
     } 
     .image.venus.structure{
         background-image: url("./assets/planet-venus-internal.svg");
         background-size: 15rem 15rem;
+        @include tablet {
+            background-size: 25rem 25rem;
+        }
     } 
     .image.earth.structure{
         background-image: url("./assets/planet-earth-internal.svg");
         background-size: 17rem 17rem;
+        @include tablet {
+            background-size: 28rem 28rem;
+        }
     } 
     .image.mars.structure{
         background-image: url("./assets/planet-mars-internal.svg");
         background-size: 13rem 13rem;
+        @include tablet {
+            background-size: 21rem 21rem;
+        }
     } 
     .image.jupiter.structure{
         background-image: url("./assets/planet-jupiter-internal.svg");
         background-size: 22rem 22rem;
+        @include tablet {
+            background-size: 37rem 37rem;
+        }
     } 
     .image.saturn.structure{
         background-image: url("./assets/planet-saturn-internal.svg");
         background-size: 25rem 25rem;
+        @include tablet {
+            background-size: 42rem 42rem;
+        }
     } 
     .image.uranus.structure{
         background-image: url("./assets/planet-uranus-internal.svg");
         background-size: 18rem 18rem;
+        @include tablet {
+            background-size: 29rem 29rem;
+        }
     } 
     .image.neptune.structure{
         background-image: url("./assets/planet-neptune-internal.svg");
         background-size: 17rem 17rem;
+        @include tablet {
+            background-size: 29rem 29rem;
+        }
     } 
     
     .planetInformations{
         margin: 0 2.5rem;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
         .infroWrapper {
             text-align: center;
+
+            @include tablet {
+                width: 50%;
+                text-align: start;
+            }
+
             h2 {
                 font-size: 4rem;
                 font-family: 'Antonio', sans-serif;
@@ -172,7 +242,7 @@ main {
                 font-size: 1.1rem;
                 font-family: 'League Spartan', sans-serif;
                 line-height: 2.2rem;
-                color: rgba(255,255,255);
+                color: rgba(255,255,255, .75);
                 font-weight: 400;
                 margin-bottom: 3rem;
             }
@@ -188,6 +258,10 @@ main {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
+                @include tablet {
+                    justify-content: flex-start;
+                }
                 a {
                     margin-left: 1rem;
                     &::after {
@@ -199,6 +273,84 @@ main {
         }
         .nav-tabletDesktop {
             display: none;
+
+            @include tablet {
+                display: flex;
+                width: 40%;
+                align-items: center;
+                ul {
+                    width: 100%;
+                    li {
+                        width: 100%;
+
+                        &:nth-of-type(2) {
+                            margin: 2rem 0;
+                        }
+
+                        button {
+                            text-align: start;
+                            width: 100%;
+                            background-color: transparent;
+                            color: rgba(255,255,255);
+                            font-size: .9rem;
+                            line-height: 2.5rem;
+                            letter-spacing: .2rem;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            padding: 1rem 0;
+                            border: .1rem solid rgba(255,255,255, .5);
+
+
+                            span {
+                                color: rgba(255,255,255, .75);
+                                margin-left: 2rem;
+                            }
+                        }
+
+                        &.mercury.active {
+                            button {
+                                background-color: rgb(65, 158, 187);
+                            }
+                        }
+                        &.venus.active {
+                            button {
+                                background-color: rgb(237, 162, 73);
+                            }
+                        }
+                        &.earth.active {
+                            button {
+                                background-color: rgb(109,46,213);
+                            }
+                        }
+                        &.mars.active {
+                            button {
+                                background-color: rgb(209, 76, 50);
+                            }
+                        }
+                        &.jupiter.active {
+                            button {
+                                background-color: rgb(216,58,52);
+                            }
+                        }
+                        &.saturn.active {
+                            button {
+                                background-color: rgb(205,81,32);
+                            }
+                        }
+                        &.uranus.active {
+                            button {
+                                background-color: rgb(30,193,162);
+                            }
+                        }
+                        &.neptune.active {
+                            button {
+                                background-color: rgb(45,104,240);
+                            }
+                        }
+                    }
+                }
+
+            }
         }
     }
 
@@ -206,6 +358,11 @@ main {
         width: 100%;
         margin: 3rem 0;
         padding: 0 2.5rem;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+        }
         div {
             width: 100%;
             height: 5rem;
@@ -216,6 +373,18 @@ main {
             align-items: center;
             padding: 0 2.5rem;
 
+            @include tablet {
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                margin-right: 1rem;
+                height: auto;
+                padding: 2rem 1.5rem;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
             h3 {
                 font-size: 1rem;
                 font-family: 'League Spartan', sans-serif;
@@ -223,6 +392,9 @@ main {
                 font-weight: 700;
                 text-transform: uppercase;
                 letter-spacing: .1rem;
+                @include tablet {
+                    margin-bottom: 1rem;
+                }
             }
             
             p {
@@ -232,6 +404,10 @@ main {
                 font-weight: 400;
                 text-transform: uppercase;
                 letter-spacing: -.1rem;
+
+                @include tablet {
+                    font-size: 2.5rem;
+                }
                 
             }
         }
