@@ -129,40 +129,48 @@ export default function Main({ selectedPlanet }) {
 						</li>
 					</ul>
 				</nav>
-				<ImageRender />
 				<div className="planetInformations">
-					<div className="infroWrapper">
-						<h2>{selectedPlanet}</h2>
-						<p>{contentT.content}</p>
-						<span>
-							Source:
-							<a href={contentT.source} target="_blank" rel="noreferrer">
-								Wikipedia
-							</a>
-						</span>
+					<ImageRender />
+					<div className="infoWrapper">
+						<div>
+							<h2>{selectedPlanet}</h2>
+							<p>{contentT.content}</p>
+							<span>
+								Source:
+								<a href={contentT.source} target="_blank" rel="noreferrer">
+									Wikipedia
+								</a>
+							</span>
+						</div>
+						<nav className="nav-tabletDesktop">
+							<ul>
+								<li
+									className={`${selectedPlanet.toLowerCase()} ${
+										activeType[0]
+									}`}>
+									<button onClick={contentPick}>
+										<span>01</span> overview
+									</button>
+								</li>
+								<li
+									className={`${selectedPlanet.toLowerCase()} ${
+										activeType[1]
+									}`}>
+									<button onClick={contentPick}>
+										<span>02</span> internal structure
+									</button>
+								</li>
+								<li
+									className={`${selectedPlanet.toLowerCase()} ${
+										activeType[2]
+									}`}>
+									<button onClick={contentPick}>
+										<span>03</span> surface geology
+									</button>
+								</li>
+							</ul>
+						</nav>
 					</div>
-					<nav className="nav-tabletDesktop">
-						<ul>
-							<li
-								className={`${selectedPlanet.toLowerCase()} ${activeType[0]}`}>
-								<button onClick={contentPick}>
-									<span>01</span> overview
-								</button>
-							</li>
-							<li
-								className={`${selectedPlanet.toLowerCase()} ${activeType[1]}`}>
-								<button onClick={contentPick}>
-									<span>02</span> internal structure
-								</button>
-							</li>
-							<li
-								className={`${selectedPlanet.toLowerCase()} ${activeType[2]}`}>
-								<button onClick={contentPick}>
-									<span>03</span> surface geology
-								</button>
-							</li>
-						</ul>
-					</nav>
 				</div>
 				<div className="planetNumbers">
 					<div>

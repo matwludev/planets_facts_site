@@ -90,13 +90,28 @@ main {
             height: 50rem;
         }
 
+        @include desktop {
+            width: 70rem;
+            height: 70rem;
+        }
+
         img {
             position: absolute;
-            width: 80px;
-            height: 100px;
+            width: 8rem;
+            height: 10rem;
             top: 75%;
             left: 50%;
             transform: translate(-50%, -50%);
+
+            @include tablet {
+                width: 12rem; 
+                height: 14rem;
+            }
+
+            @include desktop {
+                width: 16rem;
+                height: 20rem;
+            }
         }
     }
     
@@ -107,12 +122,18 @@ main {
         @include tablet {
             background-size: 18rem 18rem;
         }
+        @include desktop {
+            background-size: 29rem 29rem;
+        }
     } 
     .image.venus.overview{
         background-image: url("./assets/planet-venus.svg");
         background-size: 15rem 15rem;
         @include tablet {
             background-size: 25rem 25rem;
+        }
+        @include desktop {
+            background-size: 40rem 40rem;
         }
     } 
     .image.earth.overview{
@@ -121,12 +142,18 @@ main {
         @include tablet {
             background-size: 28rem 28rem;
         }
+        @include desktop {
+            background-size: 45rem 45rem;
+        }
     } 
     .image.mars.overview{
         background-image: url("./assets/planet-mars.svg");
         background-size: 13rem 13rem;
         @include tablet {
             background-size: 21rem 21rem;
+        }
+        @include desktop {
+            background-size: 34rem 34rem;
         }
     } 
     .image.jupiter.overview{
@@ -135,12 +162,18 @@ main {
         @include tablet {
             background-size: 37rem 37rem;
         }
+        @include desktop {
+            background-size: 58rem 58rem;
+        }
     } 
     .image.saturn.overview{
         background-image: url("./assets/planet-saturn.svg");
         background-size: 25rem 25rem;
         @include tablet {
             background-size: 42rem 42rem;
+        }
+        @include desktop {
+            background-size: 67rem 67rem;
         }
     } 
     .image.uranus.overview{
@@ -149,12 +182,18 @@ main {
         @include tablet {
             background-size: 29rem 29rem;
         }
+        @include desktop {
+            background-size: 46rem 46rem;
+        }
     } 
     .image.neptune.overview{
         background-image: url("./assets/planet-neptune.svg");
         background-size: 17rem 17rem;
         @include tablet {
             background-size: 29rem 29rem;
+        }
+        @include desktop {
+            background-size: 45rem 45rem;
         }
     } 
     .image.mercury.structure{
@@ -163,12 +202,18 @@ main {
         @include tablet {
             background-size: 18rem 18rem;
         }
+        @include desktop {
+            background-size: 29rem 29rem;
+        }
     } 
     .image.venus.structure{
         background-image: url("./assets/planet-venus-internal.svg");
         background-size: 15rem 15rem;
         @include tablet {
             background-size: 25rem 25rem;
+        }
+        @include desktop {
+            background-size: 40rem 40rem;
         }
     } 
     .image.earth.structure{
@@ -177,12 +222,18 @@ main {
         @include tablet {
             background-size: 28rem 28rem;
         }
+        @include desktop {
+            background-size: 45rem 45rem;
+        }
     } 
     .image.mars.structure{
         background-image: url("./assets/planet-mars-internal.svg");
         background-size: 13rem 13rem;
         @include tablet {
             background-size: 21rem 21rem;
+        }
+        @include desktop {
+            background-size: 34rem 34rem;
         }
     } 
     .image.jupiter.structure{
@@ -191,12 +242,18 @@ main {
         @include tablet {
             background-size: 37rem 37rem;
         }
+        @include desktop {
+            background-size: 58rem 58rem;
+        }
     } 
     .image.saturn.structure{
         background-image: url("./assets/planet-saturn-internal.svg");
         background-size: 25rem 25rem;
         @include tablet {
             background-size: 42rem 42rem;
+        }
+        @include desktop {
+            background-size: 67rem 67rem;
         }
     } 
     .image.uranus.structure{
@@ -205,6 +262,9 @@ main {
         @include tablet {
             background-size: 29rem 29rem;
         }
+        @include desktop {
+            background-size: 46rem 46rem
+        }
     } 
     .image.neptune.structure{
         background-image: url("./assets/planet-neptune-internal.svg");
@@ -212,72 +272,105 @@ main {
         @include tablet {
             background-size: 29rem 29rem;
         }
+        @include desktop {
+            background-size: 45rem 45rem;
+        }
     } 
     
     .planetInformations{
         margin: 0 2.5rem;
-
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         @include tablet {
-            display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: space-between;
+            align-items: center;
         }
-        .infroWrapper {
+
+        @include desktop {
+            flex-direction: row;
+        }
+        .infoWrapper {
             text-align: center;
 
             @include tablet {
-                width: 50%;
+                width: 100%;
                 text-align: start;
-            }
-
-            h2 {
-                font-size: 4rem;
-                font-family: 'Antonio', sans-serif;
-                font-weight: 400;
-                text-transform: uppercase;
-                color: rgba(255,255,255);
-                margin-bottom: 1.5rem;
-            }
-            p {
-                font-size: 1.1rem;
-                font-family: 'League Spartan', sans-serif;
-                line-height: 2.2rem;
-                color: rgba(255,255,255, .75);
-                font-weight: 400;
-                margin-bottom: 3rem;
-            }
-            span, span a {
-                font-size: 1.2rem;
-                font-family: 'League Spartan', sans-serif;
-                line-height: 2.5rem;
-                color: rgba(255,255,255, .5);
-                font-weight: 400;
-            }
-
-            span {
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                flex-direction: row;
+                justify-content: space-between;
+            }
 
+            @include desktop {
+                flex-direction: column;
+                width: 40%;
+                padding-right: 16rem;
+            }
+            div {
+                width: 100%;
                 @include tablet {
-                    justify-content: flex-start;
+                    width: 50%;
                 }
-                a {
-                    margin-left: 1rem;
-                    &::after {
-                        content: url('./assets/icon-source.svg');
-                        margin-left: .5rem;
+
+                @include desktop {
+                    width: 100%;
+                }
+                h2 {
+                    font-size: 4rem;
+                    font-family: 'Antonio', sans-serif;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    color: rgba(255,255,255);
+                    margin-bottom: 1.5rem;
+                }
+                p {
+                    font-size: 1.1rem;
+                    font-family: 'League Spartan', sans-serif;
+                    line-height: 2.2rem;
+                    color: rgba(255,255,255, .75);
+                    font-weight: 400;
+                    margin-bottom: 3rem;
+                }
+                span, span a {
+                    font-size: 1.2rem;
+                    font-family: 'League Spartan', sans-serif;
+                    line-height: 2.5rem;
+                    color: rgba(255,255,255, .5);
+                    font-weight: 400;
+                }
+    
+                span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+    
+                    @include tablet {
+                        justify-content: flex-start;
+                    }
+                    a {
+                        margin-left: 1rem;
+                        &::after {
+                            content: url('./assets/icon-source.svg');
+                            margin-left: .5rem;
+                        }
                     }
                 }
             }
-        }
-        .nav-tabletDesktop {
-            display: none;
+            .nav-tabletDesktop {
+                display: none;
+    
+                @include tablet {
+                    display: flex;
+                    width: 40%;
+                    align-items: center;
+                }
 
-            @include tablet {
-                display: flex;
-                width: 40%;
-                align-items: center;
+                @include desktop {
+                    width: 100%;
+                    
+                }
                 ul {
                     width: 100%;
                     li {
@@ -300,6 +393,12 @@ main {
                             padding: 1rem 0;
                             border: .1rem solid rgba(255,255,255, .5);
 
+                            @include desktop {
+                                &:hover {
+                                    background-color: rgba(216,216,216, .2);
+                                    cursor: pointer;
+                                }
+                            }
 
                             span {
                                 color: rgba(255,255,255, .75);
@@ -349,9 +448,9 @@ main {
                         }
                     }
                 }
-
             }
         }
+        
     }
 
     .planetNumbers{
@@ -362,6 +461,10 @@ main {
         @include tablet {
             display: flex;
             flex-direction: row;
+        }
+
+        @include desktop {
+            padding:0 16rem 0 0;
         }
         div {
             width: 100%;

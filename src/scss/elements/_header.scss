@@ -12,11 +12,12 @@
 
     &::after {
         content:"";
-        width: 100%;
+        width: 200vw;
         border-bottom: .1rem solid rgba(255,255,255,0.25);
         display: block;
         position: absolute;
         bottom: 0;
+        left: -100vw;
     }
 
     @include tablet {
@@ -24,6 +25,12 @@
         position: relative;
         height: auto;
         justify-content: center;
+        align-items: center;
+    }
+
+    @include desktop {
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
     }
     h1 {
@@ -36,6 +43,10 @@
 
         @include tablet {
             margin: 3rem 0;
+        }
+
+        @include desktop {
+            margin: 3rem;
         }
     }
     
@@ -78,23 +89,31 @@
             height: auto;
             top: 0;
             background-color: transparent;
-            margin: 0 5rem;
+            margin: 0 5rem 3rem;
+        }
+
+        @include desktop {
+            width: 60%;
+            align-items: center;
+            margin: 3rem 5rem;
         }
 
         li {
             width: 100%;
+            height: 100%;
             position: relative;
 
             @include tablet {
                 width: auto;
             }
+            
+           
             &::after {
                 content:"";
                 width: calc(100% - 5rem);
                 border-bottom: .1rem solid rgba(255,255,255,0.25);
                 display: block;
                 position: absolute;
-                bottom: -1rem;
                 left: 2.5rem;
                 
                 @include tablet {
@@ -105,9 +124,12 @@
             &:last-of-type::after {
                 display: none;
             }
+
+
             button {
                 position: relative;
                 width: 100%;
+                height: 100%;
                 background-color: transparent;
                 border: none;
                 color: rgba(255,255,255);
@@ -118,7 +140,6 @@
                 padding: 0 2.5rem 0 7.5rem;
                 font-family: 'League Spartan', sans-serif;
                 font-size: 1.5rem;
-                height: 7.5rem;
                 letter-spacing: .14rem;
                 text-transform: uppercase;
                 font-weight: 700;
@@ -149,48 +170,112 @@
                     }
                     &.active {
                         color: rgba(255,255,255);
+                        @include desktop {
+                            &::after {
+                                content: "";
+                                display: block;
+                                width: 100%;
+                                height: .4rem;
+                                position: absolute;
+                                top: -4rem;
+                            }
+                        }
+                        
                     }
                 }
+                @include desktop {
+                    cursor: pointer;
+                }
+                
             }
+            
             .mercury {
                 &::before{
                     background-color:rgba(222, 244, 252, 1);
                 }
+                @include desktop {
+                    &::after{
+                        background-color: rgb(65,158,187);
+                    }
+                }
+                
             }
             .venus {
                 &::before{
                     background-color:rgba(247, 204, 127, 1);
                 }
+                @include desktop {
+                    &::after{
+                        background-color: rgb(237,162,73);
+                    }
+                }
+                
             }
             .earth {
                 &::before{
                     background-color:rgba(84, 91, 254, 1);
                 }
+                @include desktop {
+                    &::after{
+                        background-color: rgb(109,46,213);
+                    }
+                }
+                
             }
             .mars {
                 &::before{
                     background-color:rgba(255, 106, 69, 1);
                 }
+                @include desktop {
+                    &::after{
+                        background-color: rgb(209,76,50);
+                    }
+                }
+                
             }
             .jupiter {
                 &::before{
                     background-color:rgba(236, 173, 122, 1);
                 }
+                @include desktop {
+                    &::after{
+                        background-color: rgb(216,58,52);
+                    }
+                }
+                
             }
             .saturn {
                 &::before{
                     background-color:rgba(252, 203, 107, 1);
                 }
+                @include desktop {
+                    &::after{
+                        background-color: rgb(205,81,32);
+                    }
+                }
+                
             }
             .uranus {
                 &::before{
                     background-color:rgba(101, 240, 213, 1);
                 }
+                @include desktop {
+                    &::after{
+                        background-color: rgb(30,193,162);
+                    }
+                }
+                
             }
             .neptune {
                 &::before{
                     background-color:rgba(73, 126, 250, 1);
                 }
+                @include desktop {
+                    &::after{
+                        background-color: rgb(45,104,240);
+                    }
+                }
+                
             }
         }
      }
